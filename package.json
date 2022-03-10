@@ -1,0 +1,30 @@
+{
+  "name": "houselook_api",
+  "version": "1.0.0",
+  "description": "Node.js Restful CRUD API with Node.js, Express and MySQl",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aloicerains/HouseLook_API.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mysql",
+    "restapi"
+  ],
+  "author": "Zacchaeus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aloicerains/HouseLook_API/issues"
+  },
+  "homepage": "https://github.com/aloicerains/HouseLook_API#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "mysql": "^2.18.1"
+  }
+}
