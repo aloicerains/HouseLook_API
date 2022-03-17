@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html leng="en">
+	<head>
+		<meta charset="utf-8">
+		<title>HouseLook api</title>
+		<link rel="stylesheet" type="text/css" href="/styles/body.css" />
+	</head>
+	<body>
+		<header>
+			<nav>
+				<span class="one"><a href="/index.html">Home</a></span>
+				<span class="two">Developers</span>
+				<span class="three">Contacts</span>
+			</nav>
+		</header>
+		<main>
+			<section class="intro">
+				<h2 class="title-head">HouseLook API</h2>
+				<p class="sub-title">Find your next house using our API!
+				</p>
+				<p>This API provides information about about houses in different cities and towns. Users can query the website for all the houses in a place. One can get information about single rooms, bed sitters, one bedrooms, and two bedrooms in given area. Reviews are also provided by previous house tenants to help make relocation decision.
+				</p>
+			</section>
+			<section class="sect">
+				<h2>Resources</h2>
+					<p>The API currently have 6 major resources:
+					<ul>
+						<li><a href="http://localhost:8080/api/v1/places" target="_blank">/places</a></li>
+						<li><a href="http://localhost:8080/api/v1/houses" target="_blank">/houses</a></li>
+						<li><a href="http://localhost:8080/api/v1/rooms" target="_blank">/rooms</a></li>
+						<li><a href="http://localhost:8080/api/v1/owners" target="_blank">/owners</a></li>
+						<li><a href="http://localhost:8080/api/v1/users" target="_blank">/users</a></li>
+						<li><a href="http://localhost:8080/api/v1/reviews" target="_blank">/reviews</a></li>
+					</ul>
+			</section>
+			<section>
+				<h2>Guide to access resources </h2>
+				<article>
+				<h3>Places</h3>
+				<table style>
+					<thead>
+						<tr>
+							<th><b>METHOD</b></th>
+							<th><b>ROUTE</b></th>
+							<th><b>DESCRIPTION</b></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+                                                	<td>GET</td>
+							<td><a href="http://localhost:8080/api/v1/places" target="_blank">/places</a></td>
+                                               		 <td>Obtain all available places within the database</td>
+                                       		 </tr>
+						 <tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/places/1" target="_blank">/places/1</a></td>
+							<td>Get information about a place by providing a valid place id <br /> Invalid id will return empty dictionary</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/places/1/houses" target="_blank">/places/1/houses</a></td>
+                                                         <td>Get a list of houses in place by providing a valid place id</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/places/8/houses/vacant" target="_blank">/places/8/houses/vacant</a></td>
+                                                         <td>Get a list of vacant houses in a place by providing the valid place id</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/places/8/rooms" target="_blank">/places/8/rooms</a></td>
+                                                         <td>Get a list of all rooms in a place</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/places/8/rooms/singles" target="_blank">/places/8/rooms/singles</a></td>
+                                                         <td>Get a list of all single rooms in the place</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/places/8/rooms/bedsitters" target="_blank">/places/8/rooms/bedsitters</a></td>
+                                                         <td>Get a list of all bedsitters in a given place</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/places/8/rooms/onebedrooms" target="_blank">/places/8/rooms/onebedrooms</a></td>
+                                                         <td>Get a list of  all onebedrooms in a place</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/places/8/rooms/twobedrooms" target="_blank">/places/8/rooms/twobedrooms</a></td>
+                                                         <td>Obtain all two bedrooms in a place</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>POST</td>
+                                                        <td>/places</td>
+							<td>Create a new place<br /> Ensure name is not null</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>PUT</td>
+                                                        <td>/places</td>
+							<td>Update a place<br /> Ensure name is not null</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>DELETE</td>
+                                                        <td>/places/89</td>
+                                                        <td>Delete a place by providing valid Id</td>
+                                                 </tr>
+
+					</tbody>
+				</table>
+				</article>
+				<article>
+				<h3>Houses</h3>
+				<table style="width=100%">
+					<thead>
+						<tr>
+							<th><b>METHOD</b></th>
+							<th><b>ROUTE</b></th>
+							<th><b>DESCRIPTION</b></th>
+                                                </tr>
+					<tbody>
+						<tr>
+                                                       	<td>GET</td>
+                                                       	<td><a href="http://localhost:8080/api/v1/houses" target="_blank">/houses</a></td>
+                                                       	<td>Get all houses</td>
+                                                 </tr>
+						 <tr>
+                                                       	<td>GET</td>
+                                                       	<td><a href="http://localhost:8080/api/v1/houses/3" target="_blank">/houses/3</a></td>
+                                                       	<td>Get information about a house by providing a valid house id <br /> Invalid id will return empty dictionary</td>
+                                                 </tr>
+						 <tr>
+                                                       	<td>GET</td>
+                                                       	<td><a href="http://localhost:8080/api/v1/houses/vacant" target="_blank">/houses/vacant</a></td>
+                                                   	<td>Get all vacant houses</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/houses/3/rooms" target="_blank">/houses/3/rooms</a></td>
+                                                        <td>Get all vacant rooms in a house by providing house id</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/houses/3/owners" target="_blank">/houses/3/owners</a></td>
+                                                        <td>Get the contact information of the house owener</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/houses/3/reviews" target="_blank">/houses/3/reviews</a></td>
+                                                        <td>Get all reviews of a given house id</td>
+                                                 </tr>
+
+						 <tr>
+                                                        <td>POST</td>
+                                                        <td>/houses</td>
+                                                        <td>Create a new house<br /> Ensure name and place_id is not null</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>PUT</td>
+                                                        <td>/houses/8</td>
+                                                        <td>Update house information<br /> Ensure name and place_id is not null</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>DELETE</td>
+                                                        <td>/houses/7</td>
+                                                        <td>Delete a house<br /> Ensure rooms related to the house are deleted</td>
+                                                 </tr>
+
+					</tbody>
+				</table>
+				</article>
+				<article>
+				<h3>Rooms</h3>
+				<table style="width=100%">
+					<thead>
+						<tr>
+							<th><b>METHOD</b></th>
+							<th><b>ROUTE</b></th>
+							<th><b>DESCRIPTION</b></th>
+                                                 </tr>
+					</thead>
+					<tbody>
+						 <tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/rooms" target="_blank">/rooms</a></td>
+                                                        <td>Get all rooms</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/rooms/4" target="_blank">/rooms/4</a></td>
+                                                        <td>Get a specific room of given id</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/rooms/vacant" target="_blank">/rooms/vacant</a></td>
+                                                        <td>Get all vacant rooms</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/rooms/singles" target="_blank">/rooms/singles</a></td>
+                                                        <td>Get all single rooms</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/rooms/bedsitters" target="_blank">/rooms/bedsitters</a></td>
+                                                        <td>Get all bedsitter rooms</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/rooms/onebedrooms" target="_blank">/rooms/onebedrooms</a></td>
+                                                        <td>Get all one bedrooms</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/rooms/twobedrooms" target="_blank">/rooms/twobedrooms</a></td>
+                                                        <td>Get all two bedrooms</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/rooms/4/reviews" target="_blank">/rooms/4/reviews</a></td>
+                                                        <td>Get reviews of specific room</td>
+                                                 </tr>
+
+						 <tr>
+                                                        <td>POST</td>
+                                                        <td>/rooms</td>
+							<td>Create a new room <br /> Ensure house_id and place_id not null</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>PUT</td>
+                                                        <td>/rooms/89</td>
+                                                        <td>Update a new room <br /> Ensure house_id and place_id not null</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>DELETE</td>
+                                                        <td>/rooms/89</td>
+                                                        <td>Delete room <br /> Enter valid room id</td>
+                                                 </tr>
+					</tbody>
+				</table>
+				</article>
+				<article>
+				<h3>Reviews</h3>
+					<table>
+						<tr>
+							<th><b>METHOD</b></th>
+                                                        <th><b>ROUTE</b></th>
+                                                        <th><b>DESCRIPTION</b></th>
+						</tr>
+						<tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/reviews" target="_blank">/reviews</a></td>
+                                                        <td>Get all reviews</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/reviews" target="_blank">/reviews</a></td>
+                                                        <td>Get all reviews</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/reviews/1" target="_blank">/reviews/1</a></td>
+                                                        <td>Get a review of a given id</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>POST</td>
+                                                        <td>/reviews</td>
+							<td>Create a review<br />Ensure house, user, and room ids are not null</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>DELETE</td>
+                                                        <td>/reviews/89</td>
+                                                        <td>Delete a specific review</td>
+                                                 </tr>
+
+					</table>
+				</article>
+				<article>
+				<h3>Owners</h3>
+					<table>
+						<tr>
+							<th><b>METHOD</b></th>
+                                                        <th><b>ROUTE</b></th>
+                                                        <th><b>DESCRIPTION</b></th>
+						</tr>
+						<tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/owners" target="_blank">/owners</a></td>
+                                                        <td>Get a list of all owners</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/owners/3" target="_blank">/owners/3</a></td>
+                                                        <td>Get owner of given id</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>POST</td>
+                                                        <td>/owners</td>
+							<td>Create a new owner <br />Ensure name and house id is not null</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>DELETE</td>
+                                                        <td>/owners/id</td>
+                                                        <td>Delete owner of given id</td>
+                                                 </tr>
+					</table>
+				</article>
+				<article>
+				<h3>Users</h3>
+					<table>
+						<tr>
+							<th><b>METHOD</b></th>
+                                                        <th><b>ROUTE</b></th>
+                                                        <th><b>DESCRIPTION</b></th>
+						</tr>
+						<tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/users" target="_blank">/users</a></td>
+                                                        <td>Get a list of all users</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>GET</td>
+                                                        <td><a href="http://localhost:8080/api/v1/users/2" target="_blank">/users/2</a></td>
+                                                        <td>Get user of given id</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>POST</td>
+                                                        <td>/users</td>
+                                                        <td>Create a new user <br />Ensure name is not null</td>
+                                                 </tr>
+						 <tr>
+                                                        <td>DELETE</td>
+                                                        <td>/users/89</td>
+                                                        <td>Delete a user of given id</td>
+                                                 </tr>
+
+					</table>
+
+				</article>
+			</section>
+		</main>
+		<footer>
+			<section>
+				<br />
+				<br />
+			<span>&copy 2022 Transfors Corp</span>
+			</section>
+		</footer>
+	</body>
+</html>

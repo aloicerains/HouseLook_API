@@ -3,6 +3,10 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
+// get path
+const path = require('path');
+
+app.use(express.static(path.join(__dirname, 'static')));
 // edit later if needed
 const corsOptions = {
   origin: 'http://localhost:8081'
@@ -12,12 +16,10 @@ app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 // parse request of content-type -application/json
 app.use(express.json());
-// get path
-const path = require('path');
 
 // simple index route
 app.get('/api/v1', (req, res) => {
-  res.sendFile(path.join(__dirname, 'static/index.html'));
+  res.sendFile(path.join(__dirname, 'static/home.html'));
 });
 // to test connection
 // use this => const sql = require("./app/models/db.js");

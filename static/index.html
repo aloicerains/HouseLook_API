@@ -1,55 +1,60 @@
 <!DOCTYPE html>
-<html leng="en">
-	<head>
-		<meta charset="utf-8">
-		<title>HouseLook api</title>
-	</head>
+<html lang="eng">
+	 <head>
+                <meta charset="utf-8">
+                <title>HouseLook</title>
+		<link rel="stylesheet" type="text/css" href="/styles/home.css" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        </head>
 	<body>
 		<header>
-			<nav>
-			</nav>
+			<span><a href="/index.html">Home</a></span>
+			<span><a href="http://localhost:8080/api/v1">API</a></span>
+			<span>Blog</span>
+			<span>Contact</span>
 		</header>
 		<main>
+			<section class="title">
+				<h1>HouseLook</h1>
+				<button><a href='/home.html' alt='House search API'>My API Project</a></button>
+				<p>Find vacant rental houses near you !</p>
+			</section>
+				<img src="/images/sky-facing-storey.jpg" class="places" alt="Skycrapper">
 			<section>
-				<h2>HouseLook API</h2>
-				<p>Let's find you a new House!
-				</p>
-				<p>The ultimate goal of the website it help users find new houses in different towns and cities. The first part is is a house searching API developed with fake data for learning purposes. The API provides resource routes description to use methods such as:
-			<ul>
-				<li>GET</li>
-				<li>PUT</li>
-				<li>POST</li>
-				<li>DELETE</li>
-			</ul>
-				</p>
+				<h2>Enter your preferred place and find the available houses!</h2>
+				<p>You want to move to a new environment and want to check for vacant houses there? Check our website for vacant house listings in the place. <br /> If you want a specific type of room such as one bedroom or bedsitters, just enter the place and get all the information about the available rooms in the place. <br /> Or Just enter the house name and get a list of vacant rooms listed in the house</p> 
+			</section>
+			<img src="/images/conversation.png" class="conversing" alt="People talking">
+			<section class="reviews">
+				<h2> Check what others are saying about the house</h2>
+				<p>What better way to tell if there are amenities you're looking for than to ask previous tenants?<br /> Tenants can give you the honest opinions about security, water avaialbility, and sanition of a given room. Just enter the room id and obtain all the previous reviews about the room. This can come handy when making your decision to rent a house</p>
+			</section>
+			<section class="decision">
+				<h2>Make your decision to rent</h2>
+				<p>If you made your mind to rent, get the contact of the house owner within the platform and securely book your room</p>
 			</section>
 			<section>
-				<h2>Resources</h2>
-					<p>The API currently have 6 major resources:
-					<ul>
-						<li><a href="http://localhost:8080/api/v1/places" target="_blank">/places</a></li>
-						<li><a href="http://localhost:8080/api/v1/houses" target="_blank">/houses</a></li>
-						<li><a href="http://localhost:8080/api/v1/rooms" target="_blank">/rooms</a></li>
-						<li><a href="http://localhost:8080/api/v1/owners" target="_blank">/owners</a></li>
-						<li><a href="http://localhost:8080/api/v1/users" target="_blank">/users</a></li>
-						<li><a href="http://localhost:8080/api/v1/reviews" target="_blank">/reviews</a></li>
-					</ul>
+				<img src="/images/api.png" class="usage" alt="dictionary response">
+				<h2>Find more on how to use my API</h2>
+				<p>If you are a developer or simply interested in using the API interface of the website please refere <a href="http://localhost:8080/api/v1/">here</a> for more details.</p>
 			</section>
-			<section>
-				<h2>Guide to access resources </h2>
-				<h3>Places</h3>
-				<table style="width:100%">
-					<tbody>
-						<tr>
-                                                	<td>GET</td>
-							<td><a href="http://localhost:8080/api/v1/places" target="_blank">/places</a></td>
-                                               		 <td>Obtain all available places within the database</td>
-                                       		 </tr>
-					</tbody>
-				</table>
+			<section class="about">
+				<h1>About</h1>
+				<p>This is the introduction to my portfolio project as a software engineering student. I've always been passionate to leverage the power of technology to improve our daily livelihood. Moving around knocking gates and making several calls in search for houses is one of the most tiring activities I've got involved in. Thanks to web development, I'm now developing a platform where house owners can conveniently advertise their buildings whereas tenants get quality and convenient places to stay. <br />This project provides a unique opportunity to sharpen my skills on backed as well as front end development. Whereas the project still focusses on backed, when completed, the front end should be fully developed too. Some of the skills learned so far include <i>Node.js, MySQL, python, Express, Flask, JavaScript, c, bash </i> and many more. Please find the links to my github repositories.</p>
+				<div id="idLinkedInIcon" onclick="window.open('https://www.linkedin.com/in/zacchaeus-okoth-03245a142?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B8zVMFJaISwmRX%2Bs3HIq%2BMg%3D%3D');" title="Profile">in</div>
+				<div class="email"><i class="fa fa-envelope" style="color: blue; font-size: 40px"></i>
+				<a href="mailto:aloiceokoth98@gmail.com">aloiceokoth98@gmail.com</a>
+				</div>
+				<div class="phone">
+					<i class="fa fa-phone" style="font-size:38px;color:blue"> +254 710 924 935</i>
+				</div>
+
 			</section>
 		</main>
 		<footer>
+			<h2>&copy 2022 Transfors Corp</h2>
 		</footer>
 	</body>
 </html>
+
