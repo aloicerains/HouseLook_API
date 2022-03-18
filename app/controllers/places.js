@@ -1,5 +1,7 @@
 // Place controllers for the CRUD operations
 const Place = require('../models/places.js');
+// import browser checker
+const checker = require('./browser.js');
 // Create new place
 exports.create = (req, res) => {
   // validate request
@@ -17,7 +19,15 @@ exports.create = (req, res) => {
 // Retrieve all places from database
 exports.findAll = (req, res) => {
   Place.findAll((err, data) => {
-    if (err) { res.status(500).send({}); } else res.status(200).send(JSON.stringify(data), null, "\t");
+    if (err) { res.status(500).send({}); } else {
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // Find a single place with an id
@@ -34,7 +44,16 @@ exports.findOne = (req, res) => {
       } else {
         res.status(500).send({});
       }
-    } else res.status(200).send(JSON.stringify(data, null, "\t"));
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // Update a place with an id

@@ -1,5 +1,7 @@
 // House Controllers for CRUD operations
 const House = require('../models/houses.js');
+// get browser checker for output formating
+const checker = require('./browser.js');
 // create a new house
 exports.create = (req, res) => {
   // Error handling
@@ -29,7 +31,16 @@ exports.placeHouses = (req, res) => {
       } else {
         res.status(500).send({});
       }
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // Retrieve all vacant houses in given place
@@ -46,13 +57,31 @@ exports.placeVacancies = (req, res) => {
       } else {
         res.status(500).send({});
       }
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // Retrieving all houses
 exports.findAll = (req, res) => {
   House.findAll((err, data) => {
-    if (err) { res.status(500).send({}); } else res.status(200).send(data);
+    if (err) { res.status(500).send({}); } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // Retrieve a singele house of given id
@@ -68,13 +97,31 @@ exports.findOne = (req, res) => {
       if (err.kind === 'not_found') {
         res.status(404).send({});
       } else res.status(500).send({});
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // Retrive all vacant houses
 exports.findVacancy = (req, res) => {
   House.findVacant((err, data) => {
-    if (err) { res.status(500).send({}); } else res.status(200).send(data);
+    if (err) { res.status(500).send({}); } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // Update a house given an id
@@ -92,7 +139,16 @@ exports.update = (req, res) => {
         if (err.kind === 'not_found') {
           res.status(404).send({});
         } else res.status(500).send({});
-      } else res.status(200).send(data);
+      } else {
+      // Formating json output
+        const dat = JSON.stringify(data, null, '\t');
+        checker.browser(req, (error, result) => {
+          if (error) { res.status(500).send({}); }
+          if (result.kind === 'browser') {
+            res.status(200).render('pages/index', { data: dat });
+          } else res.status(200).send(dat);
+        });
+      }
     });
 };
 // Delete a single house given an id

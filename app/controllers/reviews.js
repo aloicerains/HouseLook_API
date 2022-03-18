@@ -1,5 +1,7 @@
 // Review controllers for the CRUD Operations
 const Review = require('../models/reviews.js');
+// import browser checker
+const checker = require('./browser.js');
 // create a new review
 exports.create = (req, res) => {
   // Error handling
@@ -21,7 +23,16 @@ exports.getAll = (req, res) => {
   Review.findAll((err, data) => {
     if (err) {
       res.status(500).send({ Error: 'Internal Error' });
-    } else res.status(200).send({ Reviews: data });
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // get a specific review of given id
@@ -36,7 +47,16 @@ exports.getById = (req, res) => {
       if (err.kind === 'not_found') {
         res.status(404).send({});
       } else res.status(500).send({});
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // update a given review
@@ -53,7 +73,16 @@ exports.update = (req, res) => {
       if (err.kind === 'not_found') {
         res.status(404).send({});
       } else res.status(500).send({});
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // get reviews of a given house
@@ -68,7 +97,16 @@ exports.getHouseReviews = (req, res) => {
       if (err.kind === 'not_found') {
         res.status(404).send({});
       } else res.status(500).send({});
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // get reviews of given room
@@ -83,7 +121,16 @@ exports.getRoomReviews = (req, res) => {
       if (err.kind === 'not_found') {
         res.status(404).send({});
       } else res.status(500).send({});
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // delete a review

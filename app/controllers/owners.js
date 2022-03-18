@@ -1,6 +1,8 @@
 // controllers for owners CRUD operations
 // import owners model
 const Owner = require('../models/owners.js');
+// import browser checker
+const checker = require('./browser.js');
 // create a new owner
 exports.create = (req, res) => {
   // Error handling
@@ -22,8 +24,16 @@ exports.getAll = (req, res) => {
   Owner.findAll((err, data) => {
     if (err) {
       res.status(500).send({});
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
     }
-    res.status(200).send(data);
   });
 };
 // Get speicific owner
@@ -38,7 +48,16 @@ exports.getById = (req, res) => {
       if (err.kind === 'not_found') {
         res.status(404).send({});
       } else res.status(500).send({});
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // update owner of given id
@@ -53,7 +72,16 @@ exports.update = (req, res) => {
       if (err.kind === 'not_found') {
         res.status(404).send({});
       } else res.status(500).send({});
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // Get house owner
@@ -68,7 +96,16 @@ exports.getHouseOwner = (req, res) => {
       if (err.kind === 'not_found') {
         res.status(404).send({});
       } else res.status(500).send({});
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // delete a owner

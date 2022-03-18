@@ -1,5 +1,7 @@
 // User controller for CRUD operations
 const User = require('../models/users.js');
+// import browser checker
+const checker = require('./browser.js');
 // post or creating operations
 exports.create = (req, res) => {
   // Error handling
@@ -21,8 +23,16 @@ exports.getAll = (req, res) => {
   User.findAll((err, data) => {
     if (err) {
       res.status(500).send({});
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
     }
-    res.status(200).send(data);
   });
 };
 // Get user by id
@@ -37,7 +47,16 @@ exports.getById = (req, res) => {
       if (err.kind === 'not_found') {
         res.status(404).send({});
       } else res.status(500).send({});
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // Update user given id
@@ -52,7 +71,16 @@ exports.update = (req, res) => {
       if (err.kind === 'not_found') {
         res.status(404).send({});
       } else res.status(500).send({});
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // delete user given id

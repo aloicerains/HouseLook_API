@@ -12,6 +12,8 @@ const corsOptions = {
   origin: 'http://localhost:8081'
 };
 app.use(cors(corsOptions));
+// set ejs view engine
+app.set('view engine', 'ejs');
 // parse requests of content-type -application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 // parse request of content-type -application/json

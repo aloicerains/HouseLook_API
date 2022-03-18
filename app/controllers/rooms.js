@@ -1,5 +1,7 @@
 // Rooms controllers for CRUD operations
 const Room = require('../models/rooms.js');
+// check if browser for formating
+const checker = require('./browser.js');
 // create a new room
 exports.create = (req, res) => {
   // Error handling
@@ -22,7 +24,16 @@ exports.getAll = (req, res) => {
   Room.findAll((err, data) => {
     if (err) {
       res.status(500).send({});
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // Get all vacant rooms
@@ -30,7 +41,16 @@ exports.getAllVacant = (req, res) => {
   Room.findAllVacant((err, data) => {
     if (err) {
       res.status(500).send({});
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // Get room by id
@@ -45,7 +65,16 @@ exports.getById = (req, res) => {
       if (err.kind === 'not_found') {
         res.status(404).send({});
       } else res.status(500).send({});
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // Update room of given id
@@ -61,7 +90,16 @@ exports.update = (req, res) => {
       if (err.kind === 'not_found') {
         res.status(404).send({});
       } else res.status(500).send({});
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // Get all single rooms
@@ -69,7 +107,16 @@ exports.getAllSingles = (req, res) => {
   Room.findAllSingles((err, data) => {
     if (err) {
       res.status(500).send({});
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // Get all bed sitters
@@ -77,7 +124,16 @@ exports.getAllSitters = (req, res) => {
   Room.findAllSitters((err, data) => {
     if (err) {
       res.status(500).send({});
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // Get all one bedrooms
@@ -85,7 +141,16 @@ exports.getAllOnebeds = (req, res) => {
   Room.findAllOnebeds((err, data) => {
     if (err) {
       res.status(500).send({});
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // Get all two bedrooms
@@ -93,7 +158,16 @@ exports.getAllTwobeds = (req, res) => {
   Room.findAllTwobeds((err, data) => {
     if (err) {
       res.status(500).send({});
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // Get all rooms in a place
@@ -108,7 +182,16 @@ exports.getPlaceRooms = (req, res) => {
       if (err.kind === 'not_found') {
         res.status(404).send({});
       } else res.status(500).send({});
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // Get all vacant rooms in place
@@ -123,7 +206,16 @@ exports.getPlaceVacant = (req, res) => {
       if (err.kind === 'not_found') {
         res.status(404).send({});
       } else res.status(500).send({});
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // Get all vacant rooms in a house
@@ -138,7 +230,16 @@ exports.getHouseVacant = (req, res) => {
       if (err.kind === 'not_found') {
         res.status(404).send({});
       } else res.status(500).send({});
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // Get ll single rooms in a place
@@ -153,7 +254,16 @@ exports.getSingle = (req, res) => {
       if (err.kind === 'not_found') {
         res.status(404).send({});
       } else res.status(500).send({});
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // Get all bedsitters in a place
@@ -168,7 +278,16 @@ exports.getSitter = (req, res) => {
       if (err.kind === 'not_found') {
         res.status(404).send({});
       } else res.status(500).send({});
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // Get all one bedrooms in a place
@@ -183,7 +302,16 @@ exports.getOnebed = (req, res) => {
       if (err.kind === 'not_found') {
         res.status(404).send({});
       } else res.status(500).send({});
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // Get all two bedrooms in a place
@@ -198,7 +326,16 @@ exports.getTwobed = (req, res) => {
       if (err.kind === 'not_found') {
         res.status(404).send({});
       } else res.status(500).send({});
-    } else res.status(200).send(data);
+    } else {
+      // Formating json output
+      const dat = JSON.stringify(data, null, '\t');
+      checker.browser(req, (error, result) => {
+        if (error) { res.status(500).send({}); }
+        if (result.kind === 'browser') {
+          res.status(200).render('pages/index', { data: dat });
+        } else res.status(200).send(dat);
+      });
+    }
   });
 };
 // Delete a single room
