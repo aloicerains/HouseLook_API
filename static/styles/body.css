@@ -1,21 +1,23 @@
 body {
-    /*background-image: url('/images/house.jpg');*/
     background-color: lightgrey;
     display: flex;
-    font-family: verdana, Sans-serif, serif;
+    font-family: 'Yanone Kaffeesatz', verdana, sans-serif, serif;
+    font-size: 22px;
     flex-direction: column;
+}
+h3, h2 {
+    font-size: 2em;
+    color: blue;
+    font-weight: bold;
 }
 .one {
     margin-right: 45%;
-}
-.two {
-    margin-right: 35%;
 }
 section {
     padding: 10%;
 }
 .sect {
-    padding-bottom: 3%;
+    margin-bottom: 2%;
 }
 .intro {
     background-color: blue;
@@ -23,8 +25,8 @@ section {
     padding: 10%;
 }
 .title-head {
-    font-family: 'Courier New', monospace, serif;
     font-size: 4em;
+    color: white;
     text-align: center;
 }
 p {
@@ -33,7 +35,6 @@ p {
 }
 .sub-title {
     font-size: 2em;
-    font-family: 'Ariel', sans-serif, serif;
     text-align: center;
 }
 table {

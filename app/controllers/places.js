@@ -17,7 +17,7 @@ exports.create = (req, res) => {
 // Retrieve all places from database
 exports.findAll = (req, res) => {
   Place.findAll((err, data) => {
-    if (err) { res.status(500).send({}); } else res.status(200).send(data);
+    if (err) { res.status(500).send({}); } else res.status(200).send(JSON.stringify(data), null, "\t");
   });
 };
 // Find a single place with an id
@@ -34,7 +34,7 @@ exports.findOne = (req, res) => {
       } else {
         res.status(500).send({});
       }
-    } else res.status(200).send(data);
+    } else res.status(200).send(JSON.stringify(data, null, "\t"));
   });
 };
 // Update a place with an id
