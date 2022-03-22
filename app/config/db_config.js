@@ -1,7 +1,7 @@
 // database configuration file
 module.exports = {
   HOST: 'localhost',
-  USER: 'aloice',
-  PASSWORD: '4aloice',
+  USER: 'user',
+  PASSWORD: 'psswd',
   DB: 'house_look'
 };
