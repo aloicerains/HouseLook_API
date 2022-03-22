@@ -1,7 +1,7 @@
 -- create database 
 CREATE DATABASE IF NOT EXISTS house_look;
 -- create user@localhost
-GRANT ALL PRIVILEGES ON house_look.* TO 'aloice'@'localhost';
+GRANT ALL PRIVILEGES ON house_look.* TO 'user'@'localhost';
 FLUSH PRIVILEGES;
 
 -- create places table
