@@ -2,15 +2,29 @@
 HouseLook API is a RESTful API tool that allows developers and other interested users to interact and create mock data about houses.    
 This is the first segment of my portfolio project which will eventually aid in searching and renting houses in different places. 
 
+## Table of Contents
+* [Prerequisites](#prere)
+* [Environment](#env)
+* [Installation](#install)
+* [File Description](#fd)
+* [app](#app)
+* [Examples of use](#examples)
+* [Bugs](#bugs)
+* [Authors](#auth)
+* [License](#license)
+
+<a name="prere"></a>
 ## Prerequisites    
 Please ensure the following requirements before you proceed:    
 * You have Ubuntu 20.04 installed in your machine
 * You have node.js installed
 * You have npm manager
 
+<a name="env"></a>
 ## Environment
 The project was interpreted/tested on Ubuntu 20.04 LTS using node.js (version 14.19.0)    
 
+<a name="install"></a>
 ## Installation    
 * Clone this repository: `git clone "https://github.com/aloicerains/HouseLook_API"`
 * Access the HouseLook_API directory: `cd HouseLook_API`
@@ -22,6 +36,7 @@ The project was interpreted/tested on Ubuntu 20.04 LTS using node.js (version 14
 * Open your browser (firefox, chrome) and enter: `http://localhost:8080/api/v1/places`   
 You can also open another terminal and `curl "http://localhost:8080/api/v1/places"`   
 
+<a name="fd"></a>
 ## File Descriptions
 [server.js](https://github.com/aloicerains/HouseLook_API/blob/master/server.js) - the server contains the entry point to the API. Some of the functionalities of the server inlcude:   
 * `app` : the `express` server application
@@ -29,6 +44,7 @@ You can also open another terminal and `curl "http://localhost:8080/api/v1/place
 * `port`: The listening port for the application
 * `ejs`: the view engine for html files
 
+<a name="app"></a>
 ### app
 [**app/ directory**](https://github.com/aloicerains/HouseLook_API/tree/master/app) - the directory contains all the directories for running the application including configuration and route directories. The files and directories include:  
 [config/](https://github.com/aloicerains/HouseLook_API/tree/master/app/config):
@@ -61,7 +77,14 @@ The `models` folder provides the functions for interacting with the database and
 * `findAllSitters ()`: Function queries and returns bedsitter rooms in the database
 * `findAllOnebeds ()`: Function queries and returns all one bedrooms in the database
 * `findAllTwobeds ()`: Function queries and returns all two bedrooms in the database
-Each object has got a list of model functions for quering the database and obtaining responses   
+Each object has got a list of model functions for quering the database and obtaining responses    
+
+[static/](https://github.com/aloicerains/HouseLook_API/tree/master/static)    
+The `static` folder contains the static files for the application. These include the `images` and the `syles` folders where images and css styles are stored.    
+`home.html`, and `index.html` are landing and API guide pages
+
+[views/pages/](https://github.com/aloicerains/HouseLook_API/tree/master/views/pages)    
+The `views/pages/` folder provide the ejs file definition for formating the browser API responses    
 
 [routes/](https://github.com/aloicerains/HouseLook_API/tree/master/app/routes)    
 The `routes` folder defines the API methods and the corresponding route middleware to use. The methods include:   
@@ -73,12 +96,27 @@ The `routes` folder defines the API methods and the corresponding route middlewa
 * `router.post('/object', object.create)`: Routes all post requests to `create` middleware
 * `router.get('/object', object.findAll)`: Routes all get requests to `findAll` middleware
 * `router.put('/object/id', object.update)`: Routes all put requests to `update` middleware
-* `router.delete('/object/id', object.delete)': Routes all delete request to `delete` middleware
+* `router.delete('/object/id', object.delete)`: Routes all delete request to `delete` middleware
 
+<a name="examples"></a>
 ## Examples of use
 * Terminal: `curl "http://localhost:8080/api/v1/places"` retrieves a list of places in the database
 * Browser: `"http://localhost:8080/api/v1/places"` retrieves a list of places in the database
 * `curl "http://localhost:8080/api/v1/rooms"` retrieves a list of rooms in the database
 * `curl "http://localhost:8080/api/v1/rooms/1"` retrieves room 1 from the database
-* `curl "http://localhost:8080/apiv/v1/owners"` retrieves a list of owners from the database
+* `curl "http://localhost:8080/apiv/v1/owners"` retrieves a list of owners from the database    
 The [API guideline](https://web-02.onezacchaeus.tech/api/v1/) proivides futher information on API usage examples
+
+<a name="bugs"></a>
+## Bugs
+Incorrect JSON syntax during `put` or `post` request result to errors as the ouput.  
+The entire object variables must be updated during the `put` requests.    
+Wrong foreign key input during `put` or `post` request has not been handled
+
+<a name="auth"></a>
+## Authors
+Aloice Okoth: aloiceokoth98@gmail.com/zacchaeusokoth4@gmail.com
+
+<a name="license"></a>
+## License
+Public Domain
