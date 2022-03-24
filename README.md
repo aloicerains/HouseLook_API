@@ -1,6 +1,10 @@
 # HouseLooK API    
 HouseLook API is a RESTful API tool that allows developers and other interested users to interact and create mock data about houses.    
 This is the first segment of my portfolio project which will eventually aid in searching and renting houses in different places. 
+## References
+Please find the link to the deployed project and the blog articles:
+* [Project](https://web-02.onezacchaeus.tech/api/v1)   
+* [Blog post](https://medium.com/@zacchaeusokoth4/houselook-api-cd31acb58d4)  
 
 ## Table of Contents
 * [Prerequisites](#prere)
